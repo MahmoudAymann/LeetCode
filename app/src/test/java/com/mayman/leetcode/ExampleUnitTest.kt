@@ -15,9 +15,10 @@ class ExampleUnitTest {
         val expected: IntArray = intArrayOf(1, 2, 3, 1, 2, 3)
         val actual = getConcatenation(intArrayOf(1,2,3))
         assertEquals(expected.toList(), actual.toList())
+        assertEquals(expected.toList(), getConcatenationOneLine(intArrayOf(1,2,3)).toList())
     }
 
-    private fun getConcatenationEasy(nums: IntArray): IntArray {
+    private fun getConcatenationOneLine(nums: IntArray): IntArray {
         return nums.plus(nums)
     }
 
