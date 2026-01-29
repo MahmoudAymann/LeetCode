@@ -1,0 +1,16 @@
+# Ignore everything by default
+*
+
+# Allow gitignore files (root + any nested)
+!.gitignore
+!**/.gitignore
+
+# Allow the specific unit test file only
+!app/
+!app/src/
+!app/src/test/
+!app/src/test/java/
+!app/src/test/java/com/
+!app/src/test/java/com/mayman/
+!app/src/test/java/com/mayman/leetcode/
+!app/src/test/java/com/mayman/leetcode/ExampleUnitTest.kt
