@@ -12,22 +12,27 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        val expected: IntArray = intArrayOf(1, 2, 3, 1, 2, 3)
-        val actual = getConcatenation(intArrayOf(1,2,3))
+        val expected: IntArray = intArrayOf(2,3,5,4,1,7)
+        val actual = shuffle(intArrayOf(2,5,1,3,4,7), 3)
         assertEquals(expected.toList(), actual.toList())
-        assertEquals(expected.toList(), getConcatenationOneLine(intArrayOf(1,2,3)).toList())
     }
 
-    private fun getConcatenationOneLine(nums: IntArray): IntArray {
-        return nums.plus(nums)
-    }
-
-    fun getConcatenation(nums: IntArray): IntArray {
-        val res = IntArray(nums.size.times(2))
-        nums.forEachIndexed { index, item ->
-            res[index] = item
-            res[index.plus(nums.size)] = item
+    //    Input: nums = [2,5,1,3,4,7], n = 3
+//    Output: [2,3,5,4,1,7]
+//    Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is [2,3,5,4,1,7].
+    fun shuffle(nums: IntArray, n: Int): IntArray {
+        var i = 0
+        var y = n
+        var index = 0
+        val result = IntArray(2.times(n))
+        while (i < n) {
+            result[index] = nums[i]
+            index+=1
+            result[index] = nums[y]
+            index+=1
+            i+=1
+            y+=1
         }
-        return res
+        return result
     }
 }
